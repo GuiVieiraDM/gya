@@ -1,0 +1,49 @@
+{
+  "modal": {
+    "title": "Oi, eu sou a Gya!",
+    "text": "Se você tiver entre <1>01 e 63 anos</1> eu garanto que posso adivinhar sua idade!<br/>É só você responder minhas perguntas com muita sinceridade.<br/>Vamos lá?",
+    "button": "Jogar"
+  },
+  "final": {
+    "title": "Consegui! Eu sei a sua idade!<br/>Posso revelar?!",
+    "reveal": "Revelar idade",
+    "playAgain": "Jogar novamente"
+  },
+  "numberCard": {
+    "yes": "Sim",
+    "no": "Não"
+  },
+  "questionCard": {
+    "yes": "Sim",
+    "no": "Não"
+  },
+  "questions": {
+    "telefone_publico": "Você sabe o que é um telefone público?",
+    "internet_discada": "Você já usou internet discada?",
+    "orkut": "Você lembra da época do Orkut?",
+    "msn": "Você usava MSN Messenger?",
+    "locadora": "Você já alugou um filme em locadora?",
+    "disquete": "Você usava disquete?",
+    "tv_globinho": "Você assistia TV Globinho?",
+    "super_nintendo": "Você já jogou Super Nintendo?",
+    "celular_antena": "Você usava celular com antena?",
+    "fita_cassete": "Você ouviu música em fita cassete?",
+    "bts": "Você sabe o que é BTS?",
+    "roblox": "Você já jogou Roblox?",
+    "tiktok_todos_dias": "Você usa TikTok todos os dias?",
+    "trap": "Você sabe o que é Trap?",
+    "influencer_ao_vivo": "Você já viu um influencer ao vivo?",
+    "dancinha": "Você já fez dancinha no Reels ou TikTok?",
+    "fortnite": "Você joga Fortnite?",
+    "shopee": "Você já fez compras pelo Shopee?",
+    "canal_youtube_tiktok": "Você tem um canal no YouTube ou TikTok?",
+    "twitch": "Você assiste stream na Twitch?"
+  },
+  "numberQuestions": {
+    "1": "Sua idade está entre esses números?",
+    "2": "Você vê sua idade nessa lista?",
+    "3": "Está sua idade aqui?",
+    "4": "Sua idade aparece entre esses?",
+    "5": "Reconhece sua idade nesses números?"
+  }
+} 

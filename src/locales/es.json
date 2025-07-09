@@ -1,0 +1,49 @@
+{
+  "modal": {
+    "title": "¡Hola, soy Gya!",
+    "text": "Si tienes entre <1>01 y 63 años</1> ¡te garantizo que puedo adivinar tu edad!<br/>Solo responde mis preguntas sinceramente.<br/>¿Vamos?",
+    "button": "Jugar"
+  },
+  "final": {
+    "title": "¡Lo logré! ¡Sé tu edad!<br/>¿Puedo revelarla?",
+    "reveal": "Revelar edad",
+    "playAgain": "Jugar de nuevo"
+  },
+  "numberCard": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "questionCard": {
+    "yes": "Sí",
+    "no": "No"
+  },
+  "questions": {
+    "telefone_publico": "¿Sabes qué es un teléfono público?",
+    "internet_discada": "¿Alguna vez usaste internet por dial-up?",
+    "orkut": "¿Recuerdas la época de Orkut?",
+    "msn": "¿Usabas MSN Messenger?",
+    "locadora": "¿Alguna vez alquilaste una película en una videoclub?",
+    "disquete": "¿Usabas disquete?",
+    "tv_globinho": "¿Veías TV Globinho?",
+    "super_nintendo": "¿Alguna vez jugaste Super Nintendo?",
+    "celular_antena": "¿Usabas celular con antena?",
+    "fita_cassete": "¿Escuchaste música en casete?",
+    "bts": "¿Sabes qué es BTS?",
+    "roblox": "¿Alguna vez jugaste Roblox?",
+    "tiktok_todos_dias": "¿Usas TikTok todos los días?",
+    "trap": "¿Sabes qué es Trap?",
+    "influencer_ao_vivo": "¿Has visto a un influencer en vivo?",
+    "dancinha": "¿Has hecho un baile en Reels o TikTok?",
+    "fortnite": "¿Juegas Fortnite?",
+    "shopee": "¿Has comprado en Shopee?",
+    "canal_youtube_tiktok": "¿Tienes un canal en YouTube o TikTok?",
+    "twitch": "¿Ves streamings en Twitch?"
+  },
+  "numberQuestions": {
+    "1": "¿Tu edad está entre estos números?",
+    "2": "¿Ves tu edad en esta lista?",
+    "3": "¿Está tu edad aquí?",
+    "4": "¿Aparece tu edad entre estos?",
+    "5": "¿Reconoces tu edad en estos números?"
+  }
+} 

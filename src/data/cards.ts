@@ -45,29 +45,29 @@ export const cards: CardData[] = [
 ];
 
 export interface QuestionCardData {
-  question: string;
+  question: string; // agora é uma chave de tradução
   image: string;
 }
 
 export const questionCards: QuestionCardData[] = [
-  { question: "Você sabe o que é um telefone público?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já usou internet discada?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você lembra da época do Orkut?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você usava MSN Messenger?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já alugou um filme em locadora?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você usava disquete?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você assistia TV Globinho?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já jogou Super Nintendo?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você usava celular com antena?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você ouviu música em fita cassete?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você sabe o que é BTS?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já jogou Roblox?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você usa TikTok todos os dias?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você sabe o que é Trap?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já viu um influencer ao vivo?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já fez dancinha no Reels ou TikTok?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você joga Fortnite?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você já fez compras pelo Shopee?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você tem um canal no YouTube ou TikTok?", image: "/src/assets/GYA-Logo.png" },
-  { question: "Você assiste stream na Twitch?", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.telefone_publico", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.internet_discada", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.orkut", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.msn", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.locadora", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.disquete", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.tv_globinho", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.super_nintendo", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.celular_antena", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.fita_cassete", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.bts", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.roblox", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.tiktok_todos_dias", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.trap", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.influencer_ao_vivo", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.dancinha", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.fortnite", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.shopee", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.canal_youtube_tiktok", image: "/src/assets/GYA-Logo.png" },
+  { question: "questions.twitch", image: "/src/assets/GYA-Logo.png" },
 ];

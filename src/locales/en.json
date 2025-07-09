@@ -1,0 +1,49 @@
+{
+  "modal": {
+    "title": "Hi, I'm Gya!",
+    "text": "If you are between <1>01 and 63 years old</1> I guarantee I can guess your age!<br/>Just answer my questions sincerely.<br/>Shall we?",
+    "button": "Play"
+  },
+  "final": {
+    "title": "I did it! I know your age!<br/>Can I reveal it?!",
+    "reveal": "Reveal age",
+    "playAgain": "Play again"
+  },
+  "numberCard": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "questionCard": {
+    "yes": "Yes",
+    "no": "No"
+  },
+  "questions": {
+    "telefone_publico": "Do you know what a payphone is?",
+    "internet_discada": "Have you ever used dial-up internet?",
+    "orkut": "Do you remember the Orkut era?",
+    "msn": "Did you use MSN Messenger?",
+    "locadora": "Have you ever rented a movie at a video store?",
+    "disquete": "Did you use floppy disks?",
+    "tv_globinho": "Did you watch TV Globinho?",
+    "super_nintendo": "Have you ever played Super Nintendo?",
+    "celular_antena": "Did you use a cell phone with an antenna?",
+    "fita_cassete": "Did you listen to music on cassette tapes?",
+    "bts": "Do you know what BTS is?",
+    "roblox": "Have you ever played Roblox?",
+    "tiktok_todos_dias": "Do you use TikTok every day?",
+    "trap": "Do you know what Trap is?",
+    "influencer_ao_vivo": "Have you ever seen an influencer live?",
+    "dancinha": "Have you ever done a dance on Reels or TikTok?",
+    "fortnite": "Do you play Fortnite?",
+    "shopee": "Have you ever shopped on Shopee?",
+    "canal_youtube_tiktok": "Do you have a YouTube or TikTok channel?",
+    "twitch": "Do you watch streams on Twitch?"
+  },
+  "numberQuestions": {
+    "1": "Is your age among these numbers?",
+    "2": "Do you see your age in this list?",
+    "3": "Is your age here?",
+    "4": "Does your age appear among these?",
+    "5": "Do you recognize your age in these numbers?"
+  }
+} 

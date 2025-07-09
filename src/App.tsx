@@ -3,6 +3,8 @@ import NumberCard from "./components/NumberCard";
 import QuestionCard from "./components/QuestionCard";
 import { cards, questionCards, CardData, QuestionCardData } from "./data/cards";
 import TinderCard from "react-tinder-card";
+import { useTranslation, Trans } from 'react-i18next';
+import LanguageSelector from './components/LanguageSelector';
 
 // Tipos discriminados para o deck
 interface NumberDeckItem {
@@ -16,12 +18,12 @@ interface QuestionDeckItem {
 }
 type DeckItem = NumberDeckItem | QuestionDeckItem;
 
-const phrases = [
-  "Sua idade está entre esses números?",
-  "Você vê sua idade nessa lista?",
-  "Está sua idade aqui?",
-  "Sua idade aparece entre esses?",
-  "Reconhece sua idade nesses números?",
+const numberQuestionKeys = [
+  "numberQuestions.1",
+  "numberQuestions.2",
+  "numberQuestions.3",
+  "numberQuestions.4",
+  "numberQuestions.5",
 ];
 
 function shuffleArray<T>(array: T[]): T[] {
@@ -34,7 +36,7 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const generateDeck = (): DeckItem[] => {
-  const numCards: NumberDeckItem[] = cards.map((c, idx) => ({ type: "number", data: c, question: phrases[idx % phrases.length] }));
+  const numCards: NumberDeckItem[] = cards.map((c, idx) => ({ type: "number", data: c, question: numberQuestionKeys[idx % numberQuestionKeys.length] }));
   const shuffledQuestions = shuffleArray(questionCards);
   const qCards: QuestionDeckItem[] = shuffledQuestions.map((q) => ({ type: "question", data: q }));
   // Alternar sempre entre número e pergunta, começando por pergunta
@@ -48,26 +50,34 @@ const generateDeck = (): DeckItem[] => {
   return deck;
 };
 
-// Modal de apresentação
-const Modal: React.FC<{ onClose: () => void }> = ({ onClose }) => (
-  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-2 sm:px-0">
-    <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center">
-      <img src="/src/assets/GYA-Logo.png" alt="Logo GYA" className="w-28 h-28 mb-8" />
-      <h2 className="text-2xl font-bold text-violet-700 mb-4 text-center">Oi, eu sou a Gya!</h2>
-      <p className="text-gray-800 text-center mb-6">
-        Se você tiver entre <span className="font-bold">01 e 63 anos</span> eu garanto que posso adivinhar sua idade!<br/>
-        É só você responder minhas perguntas com muita sinceridade.<br/>
-        Vamos lá?
-      </p>
-      <button
-        className="bg-violet-700 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-violet-800 transition"
-        onClick={onClose}
-      >
-        Jogar
-      </button>
+// Modal de apresentação com i18n e seletor de idioma
+const Modal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
+  const { t } = useTranslation();
+  return (
+    <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-2 sm:px-0">
+      <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center relative">
+        <div className="absolute top-2 right-2">
+          <LanguageSelector />
+        </div>
+        <img src="/src/assets/GYA-Logo.png" alt="Logo GYA" className="w-28 h-28 mb-4" />
+        <h2 className="text-2xl font-bold text-violet-700 mb-4 text-center">{t('modal.title')}</h2>
+        <p className="text-gray-800 text-center mb-6">
+          <Trans i18nKey="modal.text">
+            Se você tiver entre <span className="font-bold">01 e 63 anos</span> eu garanto que posso adivinhar sua idade!<br/>
+            É só você responder minhas perguntas com muita sinceridade.<br/>
+            Vamos lá?
+          </Trans>
+        </p>
+        <button
+          className="bg-violet-700 text-white px-8 py-3 rounded-lg font-bold text-lg hover:bg-violet-800 transition"
+          onClick={onClose}
+        >
+          {t('modal.button')}
+        </button>
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 function App() {
   const [deck, setDeck] = useState<DeckItem[]>(generateDeck());
@@ -79,6 +89,7 @@ function App() {
   const [swipeAnswers, setSwipeAnswers] = useState<{ [idx: number]: string }>({});
 
   const deckMemo = useMemo(() => deck, [deck]);
+  const { t } = useTranslation();
 
   // Handler de swipe: registra a direção e já atualiza a idade se for SIM
   const handleSwipe = (direction: string, idx: number) => {
@@ -148,7 +159,11 @@ function App() {
       {showResult && (
         <div className="w-full max-w-xs sm:max-w-md min-h-[320px] sm:min-h-[420px] flex items-center justify-center bg-white/10 rounded-xl p-1 sm:p-4 text-white shadow-xl">
           <div className="flex flex-col items-center w-full gap-2 sm:gap-6">
-            <p className="text-xl sm:text-2xl font-bold mb-1 sm:mb-6 text-center">Consegui! Eu sei a sua idade!<br/>Posso revelar?!</p>
+            <p className="text-xl sm:text-2xl font-bold mb-1 sm:mb-6 text-center">
+              <Trans i18nKey="final.title">
+                Consegui! Eu sei a sua idade!<br/>Posso revelar?!
+              </Trans>
+            </p>
             <div className="mb-1 sm:mb-6">
               <span className={`text-3xl sm:text-5xl font-extrabold px-4 sm:px-8 py-2 sm:py-4 rounded-lg bg-white/20 ${!reveal ? "blur-md select-none" : ""}`}>{age}</span>
             </div>
@@ -158,7 +173,7 @@ function App() {
                   className="bg-white text-violet-700 px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold text-base sm:text-lg hover:bg-gray-200 transition"
                   onClick={() => setReveal(true)}
                 >
-                  Revelar idade
+                  {t('final.reveal')}
                 </button>
               ) : (
                 <div className="w-full h-full" />
@@ -176,7 +191,7 @@ function App() {
                 setSwipeAnswers({});
               }}
             >
-              Jogar novamente
+              {t('final.playAgain')}
             </button>
           </div>
         </div>
