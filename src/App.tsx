@@ -53,13 +53,14 @@ const generateDeck = (): DeckItem[] => {
 // Modal de apresentação com i18n e seletor de idioma
 const Modal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   const { t } = useTranslation();
+  const logo = new URL('./assets/GYA-Logo.png', import.meta.url).href;
   return (
     <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50 px-2 sm:px-0">
       <div className="bg-white rounded-2xl shadow-2xl p-6 sm:p-8 max-w-md w-full flex flex-col items-center relative">
         <div className="absolute top-2 right-2">
           <LanguageSelector />
         </div>
-        <img src="/src/assets/GYA-Logo.png" alt="Logo GYA" className="w-28 h-28 mb-4" />
+        <img src={logo} alt="Logo GYA" className="w-28 h-28 mb-4" />
         <h2 className="text-2xl font-bold text-violet-700 mb-4 text-center">{t('modal.title')}</h2>
         <p className="text-gray-800 text-center mb-6">
           <Trans i18nKey="modal.text">
@@ -116,11 +117,13 @@ function App() {
     }
   };
 
+  const logo = new URL('./assets/GYA-Logo.png', import.meta.url).href;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-800 to-violet-600 flex flex-col items-center justify-start p-0 sm:p-0">
       {showModal && <Modal onClose={() => setShowModal(false)} />}
       <img
-        src="/src/assets/GYA-Logo.png"
+        src={logo}
         alt="Mascote do GYA"
         className="w-32 h-32 sm:w-64 sm:h-64 -mb-8 sm:-mb-12"
       />
