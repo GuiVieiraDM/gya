@@ -89,7 +89,7 @@ const QuestionCard: React.FC<Props> = ({ question, image, onAnswer, fadeOut }) =
       onMouseLeave={isDragging ? handleDragEnd : undefined}
       onTouchStart={handleDragStart}
       onTouchMove={isDragging ? handleDragMove : undefined}
-      onTouchEnd={isDragging ? handleDragEnd : undefined}
+      onTouchEnd={handleDragEnd}
     >
       <p className="text-xl font-bold text-center mb-4">{question}</p>
       {image && (

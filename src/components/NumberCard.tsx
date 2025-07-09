@@ -4,7 +4,7 @@ import { CardData } from "../data/cards";
 interface Props {
   card: CardData;
   question: string;
-  onAnswer: (answer: boolean, value: number) => void;
+  onAnswer: (answer: boolean) => void;
   fadeOut?: "left" | "right" | null;
 }
 
@@ -41,10 +41,10 @@ const NumberCard: React.FC<Props> = ({ card, question, onAnswer, fadeOut }) => {
     setIsDragging(false);
     if (fadeOut) return;
     if (dragX > SWIPE_THRESHOLD) {
-      onAnswer(true, card.value);
+      onAnswer(true);
       setDragX(0);
     } else if (dragX < -SWIPE_THRESHOLD) {
-      onAnswer(false, 0);
+      onAnswer(false);
       setDragX(0);
     } else {
       setDragX(0);
@@ -54,7 +54,7 @@ const NumberCard: React.FC<Props> = ({ card, question, onAnswer, fadeOut }) => {
   // Botões
   const handleButton = (answer: boolean) => {
     if (fadeOut) return;
-    onAnswer(answer, answer ? card.value : 0);
+    onAnswer(answer);
   };
 
   let style: React.CSSProperties = {
@@ -90,7 +90,7 @@ const NumberCard: React.FC<Props> = ({ card, question, onAnswer, fadeOut }) => {
       onMouseLeave={isDragging ? handleDragEnd : undefined}
       onTouchStart={handleDragStart}
       onTouchMove={isDragging ? handleDragMove : undefined}
-      onTouchEnd={isDragging ? handleDragEnd : undefined}
+      onTouchEnd={handleDragEnd}
     >
       <p className="text-xl font-bold text-center mb-6">{question}</p>
       <div className="grid grid-cols-8 gap-1 text-base justify-items-center mb-2 bg-white/20 rounded overflow-hidden w-full">
