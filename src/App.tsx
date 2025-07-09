@@ -111,8 +111,20 @@ function App() {
 
   // Handler para botões
   const swipeRef = React.useRef<any[]>([]);
+  const isTouchDevice = () => {
+    return (
+      'ontouchstart' in window ||
+      navigator.maxTouchPoints > 0
+    );
+  };
+
   const handleButton = (idx: number, answer: boolean) => {
-    if (swipeRef.current[idx]) {
+    if (isTouchDevice()) {
+      // No mobile/touch, avança deck manualmente
+      handleSwipe(answer ? "right" : "left", idx);
+      handleCardLeftScreen(idx, deckMemo[idx]);
+    } else if (swipeRef.current[idx]) {
+      // No desktop, swipe animado
       swipeRef.current[idx].swipe(answer ? "right" : "left");
     }
   };
