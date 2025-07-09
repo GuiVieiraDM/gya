@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react";
+import React, { useState, useMemo, useEffect } from "react";
 import NumberCard from "./components/NumberCard";
 import QuestionCard from "./components/QuestionCard";
 import { cards, questionCards, CardData, QuestionCardData } from "./data/cards";
@@ -80,6 +80,14 @@ const Modal: React.FC<{ onClose: () => void }> = ({ onClose }) => {
   );
 };
 
+function Spinner() {
+  return (
+    <div className="flex items-center justify-center w-full h-full min-h-[320px] sm:min-h-[420px]">
+      <div className="w-12 h-12 border-4 border-violet-400 border-t-transparent rounded-full animate-spin"></div>
+    </div>
+  );
+}
+
 function App() {
   const [deck, setDeck] = useState<DeckItem[]>(generateDeck());
   const [currentIndex, setCurrentIndex] = useState(deck.length - 1);
@@ -88,6 +96,7 @@ function App() {
   const [reveal, setReveal] = useState(false);
   const [showModal, setShowModal] = useState(true);
   const [swipeAnswers, setSwipeAnswers] = useState<{ [idx: number]: string }>({});
+  const [loadingResult, setLoadingResult] = useState(false);
 
   const deckMemo = useMemo(() => deck, [deck]);
   const { t } = useTranslation();
@@ -101,10 +110,17 @@ function App() {
     }
   };
 
-  // Handler quando o card sai da tela
+  const showResultWithLoading = () => {
+    setLoadingResult(true);
+    setTimeout(() => {
+      setLoadingResult(false);
+      setShowResult(true);
+    }, 700);
+  };
+
   const handleCardLeftScreen = (idx: number, item: DeckItem) => {
     if (idx === 0) {
-      setShowResult(true);
+      showResultWithLoading();
     }
     setCurrentIndex((prev) => (prev > 0 ? prev - 1 : 0));
   };
@@ -139,38 +155,91 @@ function App() {
         alt="Mascote do GYA"
         className="w-32 h-32 sm:w-64 sm:h-64 -mb-8 sm:-mb-12"
       />
-      {!showModal && !showResult && (
+      {!showModal && !showResult && !loadingResult && (
         <div className="flex items-center justify-center min-h-[420px] w-full relative">
           <div className="relative w-[600px] sm:w-[720px] h-[460px] overflow-hidden flex items-center justify-center mx-auto">
-            {deckMemo.map((item, idx) => (
-              <TinderCard
-                ref={(el) => (swipeRef.current[idx] = el)}
-                key={idx}
-                className="absolute left-0 right-0 mx-auto flex items-center justify-center"
-                onSwipe={(dir) => handleSwipe(dir, idx)}
-                onCardLeftScreen={() => handleCardLeftScreen(idx, item)}
-                preventSwipe={["up", "down"]}
-                swipeRequirementType="position"
-                swipeThreshold={120}
-              >
-                {item.type === "number" ? (
-                  <NumberCard
-                    card={item.data}
-                    question={item.question}
-                    onAnswer={(answer) => handleButton(idx, answer)}
-                  />
-                ) : (
-                  <QuestionCard
-                    question={item.data.question}
-                    image={item.data.image}
-                    onAnswer={(answer) => handleButton(idx, answer)}
-                  />
-                )}
-              </TinderCard>
-            )).slice(0, currentIndex + 1)}
+            {isTouchDevice() ? (
+              // Mobile: renderiza só o card atual, sem TinderCard
+              currentIndex >= 0 && (() => {
+                const item = deckMemo[currentIndex];
+                const isLast = currentIndex === 0;
+                const handleAnswer = (answer: boolean) => {
+                  if (isLast) {
+                    setLoadingResult(true);
+                    setShowResult(false);
+                    setTimeout(() => {
+                      setLoadingResult(false);
+                      setShowResult(true);
+                    }, 700);
+                  }
+                  handleSwipe(answer ? "right" : "left", currentIndex);
+                  handleCardLeftScreen(currentIndex, item);
+                };
+                if (item.type === "number") {
+                  return (
+                    <NumberCard
+                      card={item.data}
+                      question={item.question}
+                      onAnswer={handleAnswer}
+                    />
+                  );
+                } else {
+                  return (
+                    <QuestionCard
+                      question={item.data.question}
+                      image={item.data.image}
+                      onAnswer={handleAnswer}
+                    />
+                  );
+                }
+              })()
+            ) : (
+              // Desktop: stack de TinderCard
+              deckMemo.map((item, idx) => {
+                const isLast = idx === 0;
+                const handleAnswer = (answer: boolean) => {
+                  if (isLast) {
+                    setLoadingResult(true);
+                    setShowResult(false);
+                    setTimeout(() => {
+                      setLoadingResult(false);
+                      setShowResult(true);
+                    }, 700);
+                  }
+                  handleButton(idx, answer);
+                };
+                return (
+                  <TinderCard
+                    ref={(el) => (swipeRef.current[idx] = el)}
+                    key={idx}
+                    className="absolute left-0 right-0 mx-auto flex items-center justify-center"
+                    onSwipe={(dir) => handleSwipe(dir, idx)}
+                    onCardLeftScreen={() => handleCardLeftScreen(idx, item)}
+                    preventSwipe={["up", "down"]}
+                    swipeRequirementType="position"
+                    swipeThreshold={120}
+                  >
+                    {item.type === "number" ? (
+                      <NumberCard
+                        card={item.data}
+                        question={item.question}
+                        onAnswer={handleAnswer}
+                      />
+                    ) : (
+                      <QuestionCard
+                        question={item.data.question}
+                        image={item.data.image}
+                        onAnswer={handleAnswer}
+                      />
+                    )}
+                  </TinderCard>
+                );
+              }).slice(0, currentIndex + 1)
+            )}
           </div>
         </div>
       )}
+      {loadingResult && !showResult && <Spinner />}
       {showResult && (
         <div className="w-full max-w-xs sm:max-w-md min-h-[320px] sm:min-h-[420px] flex items-center justify-center bg-white/10 rounded-xl p-1 sm:p-4 text-white shadow-xl">
           <div className="flex flex-col items-center w-full gap-2 sm:gap-6">
@@ -201,6 +270,7 @@ function App() {
                 setDeck(newDeck);
                 setAge(0);
                 setShowResult(false);
+                setLoadingResult(false);
                 setReveal(false);
                 setCurrentIndex(newDeck.length - 1);
                 setSwipeAnswers({});

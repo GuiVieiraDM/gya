@@ -15,7 +15,14 @@ const languages = [
 
 const LanguageSelector: React.FC = () => {
   const { i18n } = useTranslation();
-  const current = i18n.language === 'pt' ? 'pt-BR' : i18n.language;
+  // Normaliza o código do idioma para o disponível
+  function normalizeLang(code: string) {
+    if (code.startsWith('pt')) return 'pt-BR';
+    if (code.startsWith('en')) return 'en';
+    if (code.startsWith('es')) return 'es';
+    return 'pt-BR';
+  }
+  const current = normalizeLang(i18n.language);
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
 
