@@ -45,5 +45,16 @@
     "3": "Está sua idade aqui?",
     "4": "Sua idade aparece entre esses?",
     "5": "Reconhece sua idade nesses números?"
+  },
+  "privacy": {
+    "title": "Política de Privacidade",
+    "p1": "Este site utiliza o Google AdSense para exibir anúncios, que pode coletar dados anônimos para personalização e estatísticas. Não utilizamos cookies próprios para rastreamento ou coleta de dados pessoais.",
+    "p2": "Ao navegar neste site, você concorda com o uso dessas tecnologias conforme descrito nesta política. Não coletamos dados pessoais identificáveis sem seu consentimento.",
+    "contact": "Para dúvidas ou solicitações, entre em contato pelo e-mail: <1>guivieiradm@gmail.com</1>",
+    "button": "Fechar"
+  },
+  "footer": {
+    "text": "Desenvolvido por Dezembro 19 Tecnologia",
+    "privacy": "Política de Privacidade"
   }
 } 

@@ -5,6 +5,7 @@ import { cards, questionCards, CardData, QuestionCardData } from "./data/cards";
 import TinderCard from "react-tinder-card";
 import { useTranslation, Trans } from 'react-i18next';
 import LanguageSelector from './components/LanguageSelector';
+import PrivacyModal from "./components/PrivacyModal";
 
 // Tipos discriminados para o deck
 interface NumberDeckItem {
@@ -97,6 +98,7 @@ function App() {
   const [showModal, setShowModal] = useState(true);
   const [swipeAnswers, setSwipeAnswers] = useState<{ [idx: number]: string }>({});
   const [loadingResult, setLoadingResult] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
 
   const deckMemo = useMemo(() => deck, [deck]);
   const { t } = useTranslation();
@@ -148,8 +150,9 @@ function App() {
   const logo = new URL('./assets/GYA-Logo.png', import.meta.url).href;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-800 to-violet-600 flex flex-col items-center justify-start p-0 sm:p-0">
+    <div className="min-h-screen bg-gradient-to-br from-purple-800 to-violet-600 flex flex-col items-center justify-start p-0 sm:p-0 relative">
       {showModal && <Modal onClose={() => setShowModal(false)} />}
+      {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
       <img
         src={logo}
         alt="Mascote do GYA"
@@ -281,6 +284,20 @@ function App() {
           </div>
         </div>
       )}
+      {/* Rodapé */}
+      <footer className="w-full flex flex-col items-center justify-center py-4 mt-8 text-xs sm:text-sm text-white/80 bg-transparent z-10">
+        <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
+          <span>{t('footer.text')}</span>
+          <span className="hidden sm:inline">|</span>
+          <button
+            className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer"
+            onClick={() => setShowPrivacy(true)}
+            type="button"
+          >
+            {t('footer.privacy')}
+          </button>
+        </div>
+      </footer>
     </div>
   );
 }

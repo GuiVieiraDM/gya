@@ -45,5 +45,16 @@
     "3": "Is your age here?",
     "4": "Does your age appear among these?",
     "5": "Do you recognize your age in these numbers?"
+  },
+  "privacy": {
+    "title": "Privacy Policy",
+    "p1": "This site uses Google AdSense to display ads, which may collect anonymous data for personalization and statistics. We do not use our own cookies for tracking or collecting personal data.",
+    "p2": "By browsing this site, you agree to the use of these technologies as described in this policy. We do not collect personally identifiable data without your consent.",
+    "contact": "For questions or requests, contact us at: <1>guivieiradm@gmail.com</1>",
+    "button": "Close"
+  },
+  "footer": {
+    "text": "Developed by Dezembro 19 Tecnologia",
+    "privacy": "Privacy Policy"
   }
 } 
