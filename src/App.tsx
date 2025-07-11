@@ -41,14 +41,14 @@ function shuffleArray<T>(array: T[]): T[] {
 }
 
 const generateDeck = (): DeckItem[] => {
-  const numCards: NumberDeckItem[] = cards.map((c, idx) => ({ type: "number", data: c, question: numberQuestionKeys[idx % numberQuestionKeys.length] }));
+  const shuffledNumCards: NumberDeckItem[] = shuffleArray(cards).map((c, idx) => ({ type: "number", data: c, question: numberQuestionKeys[idx % numberQuestionKeys.length] }));
   const shuffledQuestions = shuffleArray(questionCards);
   const qCards: QuestionDeckItem[] = shuffledQuestions.map((q) => ({ type: "question", data: q }));
   // Alternar sempre entre número e pergunta, começando por pergunta
   const deck: DeckItem[] = [];
   let i = 0, j = 0;
-  while (j < numCards.length) {
-    deck.push(numCards[j++]);
+  while (j < shuffledNumCards.length) {
+    deck.push(shuffledNumCards[j++]);
     deck.push(qCards[i]);
     i = (i + 1) % qCards.length;
   }
