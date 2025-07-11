@@ -53,6 +53,11 @@
     "contact": "Para dúvidas ou solicitações, entre em contato pelo e-mail: <1>guivieiradm@gmail.com</1>",
     "button": "Fechar"
   },
+  "share": {
+    "text": "Olha só, a Gya adivinhou minha idade! Que tal desafiá-la a adivinhar a sua?",
+    "facebook": "Compartilhe no Facebook",
+    "whatsapp": "Compartilhe no WhatsApp"
+  },
   "footer": {
     "text": "Desenvolvido por Dezembro 19 Tecnologia",
     "privacy": "Política de Privacidade"

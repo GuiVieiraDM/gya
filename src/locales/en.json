@@ -53,6 +53,11 @@
     "contact": "For questions or requests, contact us at: <1>guivieiradm@gmail.com</1>",
     "button": "Close"
   },
+  "share": {
+    "text": "Look, Gya guessed my age! Can she guess yours? Try it!",
+    "facebook": "Share on Facebook",
+    "whatsapp": "Share on WhatsApp"
+  },
   "footer": {
     "text": "Developed by Dezembro 19 Tecnologia",
     "privacy": "Privacy Policy"

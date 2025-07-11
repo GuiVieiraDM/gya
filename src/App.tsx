@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useEffect } from "react";
+import React, { useState, useMemo, useEffect, useRef } from "react";
 import NumberCard from "./components/NumberCard";
 import QuestionCard from "./components/QuestionCard";
 import { cards, questionCards, CardData, QuestionCardData } from "./data/cards";
@@ -6,6 +6,10 @@ import TinderCard from "react-tinder-card";
 import { useTranslation, Trans } from 'react-i18next';
 import LanguageSelector from './components/LanguageSelector';
 import PrivacyModal from "./components/PrivacyModal";
+// @ts-ignore
+import facebookLogo from './assets/facebook.svg';
+// @ts-ignore
+import whatsappLogo from './assets/whatsapp.svg';
 
 // Tipos discriminados para o deck
 interface NumberDeckItem {
@@ -266,21 +270,45 @@ function App() {
                 <div className="w-full h-full" />
               )}
             </div>
-            <button
-              className="bg-violet-700 text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-bold text-base sm:text-lg hover:bg-violet-800 transition mt-2"
-              onClick={() => {
-                const newDeck = generateDeck();
-                setDeck(newDeck);
-                setAge(0);
-                setShowResult(false);
-                setLoadingResult(false);
-                setReveal(false);
-                setCurrentIndex(newDeck.length - 1);
-                setSwipeAnswers({});
-              }}
-            >
-              {t('final.playAgain')}
-            </button>
+            <div className="flex justify-center w-full mt-2">
+              <button
+                className="bg-violet-700 text-white px-8 py-4 rounded-xl font-bold text-lg hover:bg-violet-800 transition min-w-[200px] text-center shadow-lg"
+                onClick={() => {
+                  const newDeck = generateDeck();
+                  setDeck(newDeck);
+                  setAge(0);
+                  setShowResult(false);
+                  setLoadingResult(false);
+                  setReveal(false);
+                  setCurrentIndex(newDeck.length - 1);
+                  setSwipeAnswers({});
+                }}
+              >
+                {t('final.playAgain')}
+              </button>
+            </div>
+            <div className="flex flex-row gap-3 w-full justify-center mt-4">
+              <a
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent('https://playgya.com')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook"
+                className="flex items-center justify-center bg-blue-600 text-white w-14 h-14 rounded-lg hover:bg-blue-700 transition shadow-md"
+                style={{ maxWidth: 56, minWidth: 56 }}
+              >
+                <img src={facebookLogo} alt="Facebook" className="w-7 h-7" />
+              </a>
+              <a
+                href={`https://wa.me/?text=${encodeURIComponent(t('share.text') + ' https://playgya.com')}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="WhatsApp"
+                className="flex items-center justify-center bg-green-500 text-white w-14 h-14 rounded-lg hover:bg-green-600 transition shadow-md"
+                style={{ maxWidth: 56, minWidth: 56 }}
+              >
+                <img src={whatsappLogo} alt="WhatsApp" className="w-7 h-7" />
+              </a>
+            </div>
           </div>
         </div>
       )}
@@ -302,4 +330,57 @@ function App() {
   );
 }
 
-export default App; 
+export default App;
+
+function ShareDropdown({ shareText, t }: { shareText: string, t: any }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (ref.current && !ref.current.contains(event.target as Node)) {
+        setOpen(false);
+      }
+    }
+    if (open) document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [open]);
+
+  return (
+    <div className="relative" ref={ref}>
+      <button
+        className="flex items-center gap-2 bg-violet-700 text-white px-5 py-2 rounded-lg font-bold text-base hover:bg-violet-800 transition shadow-md"
+        onClick={() => setOpen((v) => !v)}
+        type="button"
+      >
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M4 12v.01M12 4v.01M20 12v.01M12 20v.01M7.05 7.05v.01M16.95 7.05v.01M16.95 16.95v.01M7.05 16.95v.01" /></svg>
+        {t('share.button', 'Compartilhe')}
+        <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
+      </button>
+      {open && (
+        <div className="absolute left-1/2 -translate-x-1/2 mt-2 bg-white rounded-lg shadow-lg border border-gray-200 min-w-[180px] z-50 flex flex-col py-2 animate-fade-in">
+          <a
+            href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(window.location.href)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 text-blue-700 hover:bg-blue-50 transition font-semibold text-sm"
+            onClick={() => setOpen(false)}
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22.675 0h-21.35C.595 0 0 .592 0 1.326v21.348C0 23.408.595 24 1.325 24h11.495v-9.294H9.692v-3.622h3.128V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.797.143v3.24l-1.918.001c-1.504 0-1.797.715-1.797 1.763v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.406 24 24 23.408 24 22.674V1.326C24 .592 23.406 0 22.675 0"/></svg>
+            Facebook
+          </a>
+          <a
+            href={`https://wa.me/?text=${encodeURIComponent(shareText + ' ' + window.location.href)}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 text-green-600 hover:bg-green-50 transition font-semibold text-sm"
+            onClick={() => setOpen(false)}
+          >
+            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 32 32"><path d="M16.003 3.2c-7.067 0-12.8 5.733-12.8 12.8 0 2.261.603 4.467 1.749 6.4l-2.027 5.867a1.6 1.6 0 0 0 2.027 2.027l5.867-2.027a12.74 12.74 0 0 0 6.4 1.749c7.067 0 12.8-5.733 12.8-12.8s-5.733-12.8-12.8-12.8zm0 23.467a10.62 10.62 0 0 1-5.44-1.515l-.389-.224-6.507 2.25 2.25-6.507-.224-.389a10.667 10.667 0 1 1 10.31 6.385zm5.547-7.893c-.303-.151-1.792-.885-2.07-.985-.277-.101-.48-.151-.682.151-.202.303-.782.985-.96 1.187-.177.202-.354.227-.656.076-.303-.151-1.279-.471-2.438-1.504-.902-.803-1.511-1.792-1.689-2.095-.177-.303-.019-.466.133-.617.137-.136.303-.354.454-.531.151-.177.202-.303.303-.505.101-.202.05-.379-.025-.53-.076-.151-.682-1.646-.934-2.257-.245-.589-.495-.509-.682-.519l-.58-.01c-.202 0-.53.076-.808.379-.277.303-1.06 1.036-1.06 2.528 0 1.492 1.085 2.936 1.236 3.139.151.202 2.139 3.267 5.184 4.454.725.313 1.29.5 1.731.64.727.232 1.389.2 1.911.121.583-.087 1.792-.731 2.045-1.438.253-.707.253-1.313.177-1.438-.076-.126-.277-.202-.58-.354z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      )}
+    </div>
+  );
+} 

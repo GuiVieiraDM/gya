@@ -53,6 +53,11 @@
     "contact": "Para dudas o solicitudes, contáctenos en: <1>guivieiradm@gmail.com</1>",
     "button": "Cerrar"
   },
+  "share": {
+    "text": "¡Mira, Gya adivinó mi edad! ¿Te animas a desafiarla con la tuya?",
+    "facebook": "Comparte en Facebook",
+    "whatsapp": "Comparte en WhatsApp"
+  },
   "footer": {
     "text": "Desarrollado por Dezembro 19 Tecnologia",
     "privacy": "Política de Privacidad"
