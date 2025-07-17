@@ -67,7 +67,36 @@
     "gya": "Gya was born from the desire to surprise in a playful and fun way, bringing to the digital world a classic math game: guessing people's age with just yes or no questions. The goal is to provide a light, curious, and unique experience, showing that math can be magical and enchanting when applied creatively.",
     "dezembro19_title": "About Dezembro 19",
     "dezembro19": "Guilherme Vieira has always been fascinated by fast web games and experiences that spark curiosity about how things work. He became a web developer in 2023 and has since been honing his skills, giving life to Dezembro 19 Tecnologia. The mission is to turn ideas into creative and accessible solutions, making technology an ally to surprise and delight people.",
-    "image_alt": "Gya Logo"
+    "image_alt": "Gya logo",
+    "dezembro19_image_alt": "Dezembro 19 Technology logo",
+    "mascot_alt": "Gya mascot smiling"
+  },
+  "flags": {
+    "br": "Brazil flag",
+    "us": "United States flag",
+    "es": "Spain flag"
+  },
+  "questions_image_alt": {
+    "telefone_publico": "Old payphone image",
+    "internet_discada": "Dial-up internet connection image",
+    "orkut": "Orkut social network image",
+    "msn": "MSN Messenger image",
+    "locadora": "Video rental store image",
+    "disquete": "Floppy disk image",
+    "cartoon": "Classic cartoons image",
+    "super_nintendo": "Super Nintendo console image",
+    "celular_antena": "Old cell phone with antenna image",
+    "fita_cassete": "Cassette tape image",
+    "bts": "BTS group image",
+    "roblox": "Roblox game image",
+    "tiktok_todos_dias": "TikTok app image",
+    "trap": "Trap music genre image",
+    "influencer_ao_vivo": "Influencer live image",
+    "dancinha": "TikTok dance image",
+    "fortnite": "Fortnite game image",
+    "shopee": "Shopee app image",
+    "canal_youtube_tiktok": "YouTube or TikTok channel image",
+    "twitch": "Twitch platform image"
   },
   "privacyPage": {
     "title": "Privacy Policy",

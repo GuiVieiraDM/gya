@@ -1,0 +1,22 @@
+{
+  "name": "Gya - Jogo de adivinhar idade",
+  "short_name": "Gya",
+  "description": "Gya é um jogo online divertido que adivinha sua idade com perguntas e lógica matemática.",
+  "start_url": "/#/",
+  "display": "standalone",
+  "background_color": "#7c3aed",
+  "theme_color": "#7c3aed",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/src/assets/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/src/assets/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+} 

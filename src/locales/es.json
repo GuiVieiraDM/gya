@@ -67,7 +67,36 @@
     "gya": "Gya nació del deseo de sorprender de forma lúdica y divertida, llevando al mundo digital un clásico juego matemático: adivinar la edad de las personas solo con preguntas de sí o no. El objetivo es brindar una experiencia ligera, curiosa y única, mostrando que las matemáticas pueden ser mágicas y encantadoras cuando se aplican de manera creativa.",
     "dezembro19_title": "Sobre Dezembro 19",
     "dezembro19": "Guilherme Vieira siempre ha estado fascinado por los juegos web rápidos y las experiencias que despiertan la curiosidad sobre cómo funcionan las cosas. Se convirtió en desarrollador web en 2023 y desde entonces ha perfeccionado sus habilidades, dando vida a Dezembro 19 Tecnologia. La misión es transformar ideas en soluciones creativas y accesibles, haciendo de la tecnología una aliada para sorprender y encantar a las personas.",
-    "image_alt": "Logo de Gya"
+    "image_alt": "Logo de Gya",
+    "dezembro19_image_alt": "Logo de Dezembro 19 Tecnología",
+    "mascot_alt": "Mascota de Gya sonriendo"
+  },
+  "flags": {
+    "br": "Bandera de Brasil",
+    "us": "Bandera de Estados Unidos",
+    "es": "Bandera de España"
+  },
+  "questions_image_alt": {
+    "telefone_publico": "Imagen de teléfono público antiguo",
+    "internet_discada": "Imagen de conexión a internet por dial-up",
+    "orkut": "Imagen de la red social Orkut",
+    "msn": "Imagen de MSN Messenger",
+    "locadora": "Imagen de videoclub",
+    "disquete": "Imagen de disquete",
+    "cartoon": "Imagen de dibujos animados clásicos",
+    "super_nintendo": "Imagen de la consola Super Nintendo",
+    "celular_antena": "Imagen de celular antiguo con antena",
+    "fita_cassete": "Imagen de cinta de casete",
+    "bts": "Imagen del grupo BTS",
+    "roblox": "Imagen del juego Roblox",
+    "tiktok_todos_dias": "Imagen de la app TikTok",
+    "trap": "Imagen representando el género musical Trap",
+    "influencer_ao_vivo": "Imagen de influencer en vivo",
+    "dancinha": "Imagen de baile en TikTok",
+    "fortnite": "Imagen del juego Fortnite",
+    "shopee": "Imagen de la app Shopee",
+    "canal_youtube_tiktok": "Imagen de canal de YouTube o TikTok",
+    "twitch": "Imagen de la plataforma Twitch"
   },
   "privacyPage": {
     "title": "Política de Privacidad",

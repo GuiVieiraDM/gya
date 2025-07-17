@@ -14,7 +14,7 @@ const languages = [
 ];
 
 const LanguageSelector: React.FC = () => {
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
   // Normaliza o código do idioma para o disponível
   function normalizeLang(code: string) {
     if (code.startsWith('pt')) return 'pt-BR';
@@ -47,7 +47,7 @@ const LanguageSelector: React.FC = () => {
         aria-haspopup="listbox"
         aria-expanded={open}
       >
-        <img src={currentLang.flag} alt="flag" className="w-5 h-5 rounded-full object-cover" />
+        <img src={currentLang.flag} alt={t(`flags.${currentLang.code.slice(0,2)}`)} className="w-5 h-5 rounded-full object-cover" />
         <span>{currentLang.label}</span>
         <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" /></svg>
       </button>
@@ -60,7 +60,7 @@ const LanguageSelector: React.FC = () => {
                 onClick={() => { i18n.changeLanguage(lang.code); setOpen(false); }}
                 type="button"
               >
-                <img src={lang.flag} alt="flag" className="w-5 h-5 rounded-full object-cover" />
+                <img src={lang.flag} alt={t(`flags.${lang.code.slice(0,2)}`)} className="w-5 h-5 rounded-full object-cover" />
                 <span>{lang.label}</span>
               </button>
             </li>

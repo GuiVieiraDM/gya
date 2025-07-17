@@ -118,7 +118,7 @@ const QuestionCard: React.FC<Props> = ({ question, image, onAnswer, fadeOut }) =
     >
       <p className="text-xl font-bold text-center mb-4">{t(question)}</p>
       {image && (
-        <img src={image} alt="Pergunta" className="w-full h-40 sm:h-48 object-contain mb-8 mt-2" loading="lazy" />
+        <img src={image} alt={t(`questions_image_alt.${question}`)} className="w-full h-40 sm:h-48 object-contain mb-8 mt-2" loading="lazy" />
       )}
       <div className="flex justify-center gap-4 mt-2 w-full">
         <button

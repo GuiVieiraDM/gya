@@ -113,7 +113,7 @@ const AboutPage = () => {
       <p className="mb-4 text-lg text-justify">{t('about.gya')}</p>
       <h2 className="text-2xl font-bold mb-2 mt-6 text-white sm:text-violet-700">{t('about.dezembro19_title')}</h2>
       <div className="flex flex-col sm:flex-row items-center gap-4 mb-2">
-        <img src={dez19} alt="Logo Dezembro 19" className="w-40 h-40 rounded-full object-fit bg-gray-200" />
+        <img src={dez19} alt={t('about.dezembro19_image_alt')} className="w-40 h-40 rounded-full object-fit bg-gray-200" />
         <p className="text-lg mb-4 text-justify">{t('about.dezembro19')}</p>
       </div>
     </div>
@@ -273,7 +273,7 @@ function App() {
             {showPrivacy && <PrivacyModal onClose={() => setShowPrivacy(false)} />}
             <img
               src={logo}
-              alt="Mascote do GYA"
+              alt={t('about.mascot_alt')}
               className="w-32 h-32 sm:w-64 sm:h-64 -mb-8 sm:-mb-12"
             />
             {!showModal && !showResult && !loadingResult && (
