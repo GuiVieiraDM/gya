@@ -430,11 +430,11 @@ function App() {
             <footer className="w-full flex flex-col items-center justify-center py-4 mt-8 text-xs sm:text-sm text-white/80 bg-transparent z-10">
               <div className="mb-1 font-semibold">{t('footer.text')}</div>
               <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
-                <a href="/about" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.about')}</a>
+                <a href="#/about" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.about')}</a>
                 <span className="hidden sm:inline">|</span>
-                <a href="/privacy-policy" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.privacy')}</a>
+                <a href="#/privacy-policy" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.privacy')}</a>
                 <span className="hidden sm:inline">|</span>
-                <a href="/how-to-play" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.howToPlay')}</a>
+                <a href="#/how-to-play" className="underline hover:text-white transition text-xs sm:text-sm bg-transparent border-0 p-0 m-0 cursor-pointer">{t('footerLinks.howToPlay')}</a>
               </div>
             </footer>
           </>
