@@ -61,5 +61,42 @@
   "footer": {
     "text": "Developed by Dezembro 19 Tecnologia",
     "privacy": "Privacy Policy"
-  }
+  },
+  "about": {
+    "title": "About Gya",
+    "gya": "Gya was born from the desire to surprise in a playful and fun way, bringing to the digital world a classic math game: guessing people's age with just yes or no questions. The goal is to provide a light, curious, and unique experience, showing that math can be magical and enchanting when applied creatively.",
+    "dezembro19_title": "About Dezembro 19",
+    "dezembro19": "Guilherme Vieira has always been fascinated by fast web games and experiences that spark curiosity about how things work. He became a web developer in 2023 and has since been honing his skills, giving life to Dezembro 19 Tecnologia. The mission is to turn ideas into creative and accessible solutions, making technology an ally to surprise and delight people.",
+    "image_alt": "Gya Logo"
+  },
+  "privacyPage": {
+    "title": "Privacy Policy",
+    "p1": "Gya respects your privacy. We do not collect sensitive personal data such as name, real age, or contacts. The answers provided during the game are processed only locally, in your browser, and are not stored on our servers. We use cookies and similar technologies only to improve your experience and for anonymous statistical purposes, such as Google Analytics and Google ads. We do not share your information with third parties, except when required by law. By using Gya, you agree to this policy. For questions, contact us at <1>guivieiradm@gmail.com</1>.",
+    "ads_title": "Advertising",
+    "ads": "We display Google ads to keep the project free. Google may collect browsing data to personalize ads, according to its own privacy policy.",
+    "security_title": "Security",
+    "security": "We take measures to protect your browsing, but remember: never share sensitive personal information in online games."
+  },
+  "howToPlay": {
+    "title": "How to play",
+    "intro": "It's very simple! To play with Gya, you just need to be between 01 and 63 years old. You will answer yes or no questions about experiences and also about numbers. When a number card appears, look carefully and see if your age is among the numbers shown. Always answer sincerely, as this is essential for the magic to work and for Gya to guess your age at the end. Have fun and challenge your friends!",
+    "instructions": [
+      "Answer YES or NO to each question presented.",
+      "On number cards, check if your age appears in the list before answering.",
+      "At the end, Gya will reveal your age!"
+    ]
+  },
+  "support": {
+    "title": "Support Gya",
+    "text": "Gya is an independent game, created to entertain and spark curiosity. If you'd like to help with a donation, Dezembro 19's <b>Pix</b> is:",
+    "pix": "52.368.270/0001-53",
+    "thanks": "Any amount is welcome and will be greatly appreciated!"
+  },
+  "back": "← Back to the game",
+  "footerLinks": {
+    "about": "About",
+    "privacy": "Privacy Policy",
+    "howToPlay": "How to play"
+  },
+  "supportButton": "Support"
 } 
