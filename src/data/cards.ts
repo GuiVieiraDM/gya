@@ -21,7 +21,7 @@ export const cards: CardData[] = [
   {
     id: 3,
     value: 4,
-    color: "bg-yellow-400",
+    color: "bg-yellow-500",
     numbers: Array.from({ length: 64 }, (_, i) => i + 1).filter(n => n & 4),
   },
   {
