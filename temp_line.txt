@@ -1,0 +1,1 @@
+      faq2a: 'Cada carta representa um conjunto de valores que, quando somados conforme suas respostas, permitem calcular sua idade final. É parte do truque matemático!',
