@@ -214,99 +214,6 @@ const TermsPage = () => {
   );
 };
 
-// Seção de conteúdo editorial visível na Home (melhora compliance AdSense)
-const HomeInfoSection: React.FC = () => {
-  const { i18n } = useTranslation();
-  const lang = (i18n.language || 'pt').slice(0,2);
-
-  const content = {
-    pt: {
-      title: 'Sobre o jogo e como funciona',
-      p1: 'A Gya é um jogo autoral que utiliza um conjunto de cartas e perguntas para estimar sua idade entre 01 e 63 anos. A mecânica combina curiosidade com lógica matemática: ao responder Sim ou Não para listas de números e perguntas de contexto, o algoritmo soma valores específicos e chega ao resultado final. Essa técnica é inspirada em propriedades de representação binária — por isso, cada resposta importa!',
-      p2: 'Como jogar: 1) Leia com atenção as cartas numéricas e identifique se sua idade aparece nelas. 2) Responda às perguntas de Sim ou Não com sinceridade. 3) No fim do baralho, a Gya revela sua idade estimada. O jogo acontece no seu próprio navegador, sem cadastro e sem coleta de dados pessoais sensíveis.',
-      p3: 'Dicas e segurança: você pode jogar quantas vezes quiser, compartilhar com amigos e comparar resultados. Evite inserir informações pessoais em qualquer campo de comentário ou formulário fora do jogo. Nosso objetivo é oferecer entretenimento leve e acessível.',
-      faqTitle: 'Perguntas frequentes (FAQ)',
-      faq1q: 'A Gya coleta meus dados pessoais?',
-      faq1a: 'Não. As respostas do jogo são processadas localmente no seu navegador. Não pedimos nome, e-mail ou idade real.',
-      faq2q: 'Por que preciso ver cartas com muitos números?',
-      faq2a: 'Cada carta representa um conjunto de valores que, quando somados conforme suas respostas, permitem calcular sua idade final. É parte do truque matemático!',
-      faq3q: 'Posso jogar em qualquer idade?',
-      faq3a: 'O jogo foi desenhado para o intervalo de 01 a 63 anos. Fora desse intervalo, o resultado pode não ser preciso.',
-    },
-    en: {
-      title: 'About the game and how it works',
-      p1: 'Gya is an original guessing game that uses cards and questions to estimate your age between 01 and 63. It mixes curiosity with simple math: when you answer Yes or No to number lists and context questions, the algorithm sums specific values to reach a result. This technique is inspired by binary representation properties — that’s why each answer matters!',
-      p2: 'How to play: 1) Carefully check the number cards and see if your age appears. 2) Answer Yes/No sincerely. 3) At the end of the deck, Gya reveals the estimated age. Everything runs locally in your browser, without sign-up and without collecting sensitive personal data.',
-      p3: 'Tips and safety: play as many times as you want, share with friends and compare results. Avoid sharing personal info in any external forms. The goal is light and accessible fun.',
-      faqTitle: 'FAQ',
-      faq1q: 'Does Gya collect my personal data?',
-      faq1a: 'No. Your answers are processed locally in your browser. We do not ask for your name, email, or real age.',
-      faq2q: 'Why the number-heavy cards?',
-      faq2a: 'Each card is a set of values that, when summed based on your answers, reveals your final age. It’s part of the math trick!',
-      faq3q: 'Can I play at any age?',
-      faq3a: 'It’s designed for ages 01 to 63. Outside that range, results may be inaccurate.',
-    },
-    es: {
-      title: 'Sobre el juego y cómo funciona',
-      p1: 'Gya es un juego original que utiliza cartas y preguntas para estimar tu edad entre 01 y 63. Combina curiosidad con lógica matemática: al responder Sí o No a listas de números y preguntas de contexto, el algoritmo suma valores y llega al resultado. La técnica se inspira en la representación binaria — ¡por eso cada respuesta cuenta!',
-      p2: 'Cómo jugar: 1) Revisa con atención las cartas numéricas y verifica si aparece tu edad. 2) Responde Sí/No con sinceridad. 3) Al final del mazo, Gya revela la edad estimada. Todo sucede localmente en tu navegador, sin registro ni recopilación de datos personales sensibles.',
-      p3: 'Consejos y seguridad: juega cuantas veces quieras, compártelo con amigos y compara resultados. Evita compartir datos personales en formularios externos. El objetivo es entretenimiento ligero y accesible.',
-      faqTitle: 'Preguntas frecuentes (FAQ)',
-      faq1q: '¿Gya recopila mis datos personales?',
-      faq1a: 'No. Las respuestas se procesan localmente en tu navegador. No pedimos nombre, correo ni tu edad real.',
-      faq2q: '¿Por qué hay cartas con tantos números?',
-      faq2a: 'Cada carta representa valores que, al sumarse según tus respuestas, revelan tu edad final. ¡Es parte del truco matemático!',
-      faq3q: '¿Puedo jugar con cualquier edad?',
-      faq3a: 'Está diseñado para 01 a 63 años. Fuera de ese rango, el resultado puede no ser preciso.',
-    }
-  } as const;
-
-  const c = content[(lang === 'en' || lang === 'es') ? lang : 'pt'];
-
-  // Override phrasing to keep the math "mystery" (avoid saying it "adds/sums")
-  const p1Text = (
-    lang === 'en'
-      ? 'Gya is an original guessing game that uses cards and questions to estimate your age between 01 and 63. It mixes curiosity with simple math: when you answer Yes or No to number lists and context questions, the algorithm combines patterns to reach a result. This technique is inspired by binary representation properties — that’s why each answer matters!'
-      : lang === 'es'
-        ? 'Gya es un juego original que utiliza cartas y preguntas para estimar tu edad entre 01 y 63. Combina curiosidad con lógica matemática: al responder Sí o No a listas de números y preguntas de contexto, el algoritmo combina patrones y llega al resultado. La técnica se inspira en la representación binaria — ¡por eso cada respuesta cuenta!'
-        : 'A Gya é um jogo autoral que utiliza um conjunto de cartas e perguntas para estimar sua idade entre 01 e 63 anos. A mecânica combina curiosidade com lógica matemática: ao responder Sim ou Não para listas de números e perguntas de contexto, o algoritmo cruza padrões e chega ao resultado final. Essa técnica é inspirada em propriedades de representação binária — por isso, cada resposta importa!'
-  );
-
-  const faq2aText = (
-    lang === 'en'
-      ? "Each card is a set of values that, when interpreted together with your answers, reveals your final age. It’s part of the math trick!"
-      : lang === 'es'
-        ? 'Cada carta representa valores que, al interpretarse en conjunto con tus respuestas, revelan tu edad final. ¡Es parte del truco matemático!'
-        : 'Cada carta representa um conjunto de valores que, quando interpretados em conjunto com suas respostas, permitem chegar à idade final. É parte do truque matemático!'
-  );
-
-  return (
-    <section className="w-full bg-white/90 text-gray-900 mt-8 sm:mt-10">
-      <div className="max-w-3xl mx-auto px-4 py-8">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-violet-700 mb-4">{c.title}</h2>
-        <p className="text-lg mb-4 text-justify">{p1Text}</p>
-        <p className="text-lg mb-4 text-justify">{c.p2}</p>
-        <p className="text-lg mb-6 text-justify">{c.p3}</p>
-        <h3 className="text-xl sm:text-2xl font-bold text-violet-700 mb-3">{c.faqTitle}</h3>
-        <div className="space-y-3">
-          <div>
-            <p className="font-semibold">{c.faq1q}</p>
-            <p className="text-justify">{c.faq1a}</p>
-          </div>
-          <div>
-            <p className="font-semibold">{c.faq2q}</p>
-            <p className="text-justify">{faq2aText}</p>
-          </div>
-          <div>
-            <p className="font-semibold">{c.faq3q}</p>
-            <p className="text-justify">{c.faq3a}</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
 function App() {
   const [deck, setDeck] = useState<DeckItem[]>(generateDeck());
   const [currentIndex, setCurrentIndex] = useState(deck.length - 1);
@@ -548,7 +455,6 @@ function App() {
               </div>
             )}
             {/* Rodapé */}
-            <HomeInfoSection />
             <footer className="w-full flex flex-col items-center justify-center py-4 mt-8 text-xs sm:text-sm text-white/80 bg-transparent z-10">
               <div className="mb-1 font-semibold">{t('footer.text')}</div>
               <div className="flex flex-col sm:flex-row items-center gap-1 sm:gap-2">
